@@ -17,9 +17,9 @@ static Purchaser *_purchaser;
     [_purchaser addObserverForProduct:productId block:block];
 }
 
-+ (void)buyProduct:(NSString *)productId block:(void(^)(NSError *error))block
++ (void)buyProduct:(NSString *)productId succeeded:(void (^)(SKPaymentTransaction *))succeeded failed:(void (^)(NSError *))block
 {
-    [_purchaser buyProduct:productId block:block];
+    [_purchaser buyProduct:productId succeeded:succeeded failed:block];
 }
 
 @end
